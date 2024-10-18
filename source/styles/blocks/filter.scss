@@ -1,0 +1,216 @@
+.filter {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+.filter__title {
+  margin: 0 0 20px;
+
+  @include font(16px, 24px, 600, none, $base-text-color);
+}
+
+.filter__price-container {
+  display: grid;
+  grid-template-columns: 118px 8px 118px;
+  column-gap: 18px;
+
+  &::before {
+    content: "";
+    display: block;
+    grid-column: 2/3;
+    margin: 20px 0 18px;
+    order: 0;
+    width: 8px;
+    height: 2px;
+    background-color: $inexpressive-text-color;
+  }
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 87px 8px 87px;
+    column-gap: 20px;
+  }
+}
+
+.filter__value[type="number"] {
+  padding: 6px 8px;
+  width: 100%;
+
+  @include font(16px, 24px, 500, none, $base-text-color);
+  text-align: center;
+
+  border: 2px solid $middle-accent-color;
+  border-radius: 4px;
+
+  appearance: textfield;
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  &::placeholder {
+    color: $inexpressive-text-color;
+  }
+
+  &:hover,
+  &:focus-visible,
+  &:active {
+    outline: none;
+    border-color: $dark-accent-color;
+  }
+
+  &:disabled {
+    border-color: $disabled-color;
+  }
+}
+
+.filter__label-price:first-child {
+  order: -1;
+  grid-column: 1/2;
+}
+
+.filter__label {
+  position: relative;
+
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+
+  @include font(16px, 24px, 400, none, $base-text-color);
+
+  &:has(.filter__value[type="radio"]):not(:last-child),
+  &:has(.filter__value[type="checkbox"]):not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  /* radio-buttons */
+
+  &:has(.filter__value[type="radio"]) {
+    &::before {
+      content: "";
+      width: 24px;
+      height: 24px;
+      border: 2px solid $inexpressive-text-color;
+      border-radius: 50%;
+    }
+
+    &::after {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+    }
+  }
+
+  &:has(.filter__value[type="radio"]:disabled) {
+    color: $inexpressive-text-color;
+
+    &::before {
+      border-color: $disabled-color;
+    }
+  }
+
+  &:has(.filter__value[type="radio"]:checked) {
+    &::before {
+      border-color: $accent-color;
+    }
+
+    &::after {
+      content: "";
+      background-color: $accent-color;
+    }
+  }
+
+  &:has(.filter__value[type="radio"]:checked:disabled) {
+    color: $inexpressive-text-color;
+
+    &::before {
+      border-color: $disabled-color;
+    }
+
+    &::after {
+      background-color: $disabled-color;
+    }
+  }
+
+  &:has(.filter__value[type="radio"]:not(:disabled):hover),
+  &:has(.filter__value[type="radio"]:not(:disabled):focus-visible) {
+    &::before {
+      border-color: $middle-accent-color;
+    }
+
+    &::after {
+      content: "";
+      background-color: rgba(120, 89, 207, 0.25);
+    }
+  }
+
+  /* checkbox-switches */
+
+  &:has(.filter__value[type="checkbox"]) {
+    &::before {
+      content: "";
+      width: 42px;
+      height: 24px;
+
+      background-color: $inexpressive-text-color;
+      border-radius: 12px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2px;
+      width: 20px;
+      height: 20px;
+
+      background-color: $base-background-color;
+      border-radius: 50%;
+    }
+  }
+
+  &:has(.filter__value[type="checkbox"]:checked) {
+    &::before {
+      background-color: $accent-color;
+    }
+
+    &::after {
+      left: 20px;
+    }
+  }
+
+  &:has(.filter__value[type="checkbox"]:disabled) {
+    color: $inexpressive-text-color;
+
+    &::before {
+      background-color: $disabled-color;
+    }
+  }
+
+  &:has(.filter__value[type="checkbox"]:checked:disabled) {
+    color: $inexpressive-text-color;
+
+    &::before {
+      background-color: $disabled-color;
+    }
+
+    &::after {
+      background-color: $inexpressive-text-color;
+    }
+  }
+
+  &:has(.filter__value[type="checkbox"]:not(:disabled):hover),
+  &:has(.filter__value[type="checkbox"]:not(:disabled):focus-visible) {
+    &::before {
+      border: 2px solid $middle-accent-color;
+      background-color: rgba(120, 89, 207, 0.25);
+    }
+  }
+}

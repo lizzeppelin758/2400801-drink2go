@@ -1,0 +1,40 @@
+.button {
+  padding: 8px;
+
+  @include font(16px, 24px, 400, none, $base-background-color);
+
+  background-color: $accent-color;
+  border: none;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus-visible {
+    background-color: $middle-accent-color;
+  }
+
+  &:active {
+    background-color: $dark-accent-color;
+  }
+
+  &:disabled {
+    background-color: $inexpressive-text-color;
+  }
+}
+
+.button--secondary {
+  color: $accent-color;
+  background-color: $base-background-color;
+
+  &:disabled {
+    background-color: $disabled-color;
+  }
+}
+
+.button--image {
+  padding-left: 46px;
+
+  background-image: url("../../icons/cart-plus.svg");
+  background-repeat: no-repeat;
+  background-position: left 20px center;
+  background-size: 20px 16px;
+}

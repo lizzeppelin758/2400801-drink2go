@@ -1,0 +1,81 @@
+.pagination {
+  display: flex;
+  column-gap: 20px;
+}
+
+.pagination__button {
+  padding: 8px;
+  min-width: 40px;
+
+  border: none;
+  border-radius: 4px;
+  background-color: $base-background-color;
+
+  @include font(16px, 24px, 400, none, $accent-color);
+
+  &--current {
+    color: $base-text-color;
+    font-weight: 600;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: $base-background-color;
+    background-color: $middle-accent-color;
+
+    &::before {
+      background-color: $base-background-color;
+    }
+  }
+
+  &:active {
+    color: $base-background-color;
+    background-color: $dark-accent-color;
+
+    &::before {
+      background-color: $base-background-color;
+    }
+  }
+
+  &:disabled {
+    color: $base-background-color;
+    background-color: $disabled-color;
+
+    &::before {
+      background-color: $base-background-color;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .pagination__button-text {
+    display: none;
+  }
+
+  .pagination__button--arrow {
+    &::before {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      width: 10px;
+      height: 10px;
+      background-color: $accent-color;
+      mask-size: 10px 10px;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-image: url("../../icons/slider-arrow-prev.svg");
+    }
+  }
+
+  .pagination__button--next {
+    &::before {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .pagination__button--arrow {
+    padding: 8px 20px;
+  }
+}

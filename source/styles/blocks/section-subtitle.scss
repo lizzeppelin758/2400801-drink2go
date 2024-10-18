@@ -1,0 +1,12 @@
+.section-subtitle {
+  padding: 0 10px;
+  text-align: center;
+
+  @include font(24px, 36px, 700, none, $base-text-color);
+}
+
+@media (min-width: $tablet-width) {
+  .section-subtitle {
+    @include font(42px, 64px, 700, none, $base-text-color);
+  }
+}

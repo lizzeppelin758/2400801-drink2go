@@ -1,0 +1,73 @@
+.filters {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 30px;
+}
+
+.filters__button-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.filters__button {
+  width: 280px;
+}
+
+@media (min-width: $tablet-width) {
+  .filters {
+    grid-template-columns: repeat(3, 222px);
+    gap: 40px 30px;
+  }
+
+  .filters__price {
+    grid-column: 1/2;
+  }
+
+  .filters__milk {
+    grid-column: 2/3;
+  }
+
+  .filters__country {
+    grid-column: 3/4;
+  }
+
+  .filters__button-container {
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    justify-self: center;
+
+    flex-direction: row;
+    column-gap: 20px;
+  }
+
+  .filters__button[type="submit"] {
+    width: 137px;
+  }
+
+  .filters__button[type="reset"] {
+    width: 120px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .filters {
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+  }
+
+  .filters__price,
+  .filters__milk,
+  .filters__country {
+    grid-column: 1/2;
+  }
+
+  .filters__button-container {
+    grid-row: auto;
+  }
+
+  .filters__button[type="submit"],
+  .filters__button[type="reset"] {
+    width: 149px;
+  }
+}

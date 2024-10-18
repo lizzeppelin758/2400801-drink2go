@@ -1,0 +1,51 @@
+.sorting {
+  display: flex;
+  column-gap: 8px;
+  align-items: center;
+}
+
+.sorting__title {
+  @include font(16px, 24px, 600, none, $base-text-color);
+}
+
+.sorting__select {
+  padding: 6px 10px 5px;
+  width: 165px;
+
+  @include font(16px, 24px, 600, lowercase, $accent-color);
+
+  background-color: inherit;
+  border: none;
+
+  appearance: none;
+
+  &:hover,
+  &:focus-visible {
+    outline: none;
+    background-color: $light-accent-color;
+  }
+}
+
+.sorting__select-container {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 6px;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    background-size: 10px 6px;
+    background-image: url("../../icons/select-arrow.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+@media (min-width: $tablet-width) {
+  .sorting {
+    column-gap: 10px;
+  }
+}

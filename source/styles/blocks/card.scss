@@ -1,0 +1,65 @@
+.card {
+  padding: 40px 20px 20px;
+  width: 280px;
+
+  display: grid;
+  grid-template-areas:
+    "image       image"
+    "description description"
+    "price       button";
+
+  background-color: $base-background-color;
+}
+
+.card__link {
+  grid-area: image;
+  text-decoration: none;
+}
+
+.card__image {
+  display: block;
+  margin: 0 auto 24px;
+}
+
+.card__title {
+  margin: 0 0 4px;
+  text-align: left;
+
+  @include font(18px, 32px, 700, none, $base-text-color);
+}
+
+.card__description {
+  grid-area: description;
+  margin: 0 0 16px;
+}
+
+.card__price {
+  grid-area: price;
+  place-self: center left;
+  margin: 0;
+
+  @include font(20px, 32px, 600, none, $base-text-color);
+}
+
+.card__button {
+  grid-area: button;
+  width: 141px;
+  justify-self: right;
+}
+
+@media (min-width: $tablet-width) {
+  .card {
+    padding: 50px 30px 30px;
+    width: 349px;
+  }
+
+  .card__title {
+    @include font(24px, 36px, 700, none, $base-text-color);
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .card {
+    width: 317px;
+  }
+}

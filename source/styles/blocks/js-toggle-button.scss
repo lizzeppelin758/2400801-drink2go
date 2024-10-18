@@ -1,0 +1,29 @@
+.js-toggle-button {
+  min-width: 16px;
+  min-height: 12px;
+  padding: 10px 22px;
+
+  background-color: transparent;
+  border: none;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 16px;
+    height: 12px;
+    background-color: $base-text-color;
+    mask-image: url("../../icons/menu.svg");
+    mask-size: 16px 12px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+  }
+
+  &--close::before {
+    mask-image: url("../../icons/menu-close.svg");
+  }
+
+  &:active {
+    background-color: $light-accent-color;
+  }
+}
+
